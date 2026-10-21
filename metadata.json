@@ -1,0 +1,6 @@
+{
+  "name": "Grocery Tracker",
+  "description": "Smart pantry and grocery tracker with Google Authorization, account-wise cloud synchronization, AI receipt scanning, expiration alerts, and budget analytics.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

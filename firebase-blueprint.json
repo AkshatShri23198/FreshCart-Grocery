@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "UserProfile": {
+      "path": "users/{userId}",
+      "description": "User profile and account settings",
+      "fields": {
+        "uid": { "type": "string", "description": "Firebase Auth user ID" },
+        "email": { "type": "string", "description": "User email address" },
+        "displayName": { "type": "string", "description": "User display name" },
+        "photoURL": { "type": "string", "description": "Profile picture URL" },
+        "monthlyBudget": { "type": "number", "description": "Default monthly grocery budget" },
+        "spentThisMonth": { "type": "number", "description": "Current month total grocery spending" },
+        "activeAccountId": { "type": "string", "description": "Current active household profile ID" },
+        "createdAt": { "type": "string", "description": "Account creation timestamp" },
+        "lastLoginAt": { "type": "string", "description": "Last sign-in timestamp" }
+      }
+    },
+    "PantryItem": {
+      "path": "users/{userId}/pantryItems/{itemId}",
+      "description": "Pantry inventory items owned by the user",
+      "fields": {
+        "id": { "type": "string", "description": "Unique item ID" },
+        "name": { "type": "string", "description": "Item name" },
+        "category": { "type": "string", "description": "Produce, Dairy, etc." },
+        "location": { "type": "string", "description": "Fridge, Pantry, Freezer, Spice Cabinet" },
+        "quantity": { "type": "number", "description": "Current stock quantity" },
+        "unit": { "type": "string", "description": "Unit of measurement" },
+        "estimatedPcs": { "type": "string", "description": "Accurate pieces note" },
+        "expirationDate": { "type": "string", "description": "YYYY-MM-DD expiration date" },
+        "purchaseDate": { "type": "string", "description": "YYYY-MM-DD purchase date" },
+        "price": { "type": "number", "description": "Item cost/price" },
+        "lowStockThreshold": { "type": "number", "description": "Alert threshold" },
+        "notes": { "type": "string", "description": "Additional notes" },
+        "isOpened": { "type": "boolean", "description": "Whether package is opened" }
+      }
+    },
+    "ShoppingItem": {
+      "path": "users/{userId}/shoppingItems/{itemId}",
+      "description": "Shopping list items for the user",
+      "fields": {
+        "id": { "type": "string", "description": "Unique shopping item ID" },
+        "name": { "type": "string", "description": "Item name" },
+        "category": { "type": "string", "description": "Category name" },
+        "quantity": { "type": "number", "description": "Desired purchase quantity" },
+        "unit": { "type": "string", "description": "Unit of measurement" },
+        "estimatedPrice": { "type": "number", "description": "Estimated cost" },
+        "isPurchased": { "type": "boolean", "description": "Purchase check state" },
+        "priority": { "type": "string", "description": "high, medium, or low" },
+        "addedFromPantry": { "type": "boolean", "description": "Whether item came from pantry low-stock" }
+      }
+    },
+    "WasteLog": {
+      "path": "users/{userId}/wasteLogs/{logId}",
+      "description": "Food waste logs for analytics",
+      "fields": {
+        "id": { "type": "string", "description": "Unique log ID" },
+        "itemName": { "type": "string", "description": "Name of wasted item" },
+        "category": { "type": "string", "description": "Category" },
+        "quantity": { "type": "number", "description": "Quantity wasted" },
+        "unit": { "type": "string", "description": "Unit" },
+        "estimatedValue": { "type": "number", "description": "Financial loss value" },
+        "date": { "type": "string", "description": "Date wasted" },
+        "reason": { "type": "string", "description": "Expired, Spoiled, Leftover, Other" }
+      }
+    },
+    "HouseholdAccount": {
+      "path": "users/{userId}/accounts/{accountId}",
+      "description": "Sub-accounts or profiles within the user household",
+      "fields": {
+        "id": { "type": "string", "description": "Account ID" },
+        "name": { "type": "string", "description": "Profile name" },
+        "ownerName": { "type": "string", "description": "Person name" },
+        "avatar": { "type": "string", "description": "Avatar image URL" },
+        "type": { "type": "string", "description": "Personal, Family, Business, etc." },
+        "monthlyBudget": { "type": "number", "description": "Monthly budget limit" },
+        "color": { "type": "string", "description": "Theme color tag" },
+        "description": { "type": "string", "description": "Profile notes" },
+        "createdAt": { "type": "string", "description": "Creation date" }
+      }
+    },
+    "FinancialTransaction": {
+      "path": "users/{userId}/transactions/{transId}",
+      "description": "Expense and income transactions",
+      "fields": {
+        "id": { "type": "string", "description": "Transaction ID" },
+        "accountId": { "type": "string", "description": "Target profile account ID" },
+        "type": { "type": "string", "description": "income or expense" },
+        "amount": { "type": "number", "description": "Amount in currency" },
+        "category": { "type": "string", "description": "Transaction category" },
+        "date": { "type": "string", "description": "Transaction date" },
+        "title": { "type": "string", "description": "Title or label" },
+        "notes": { "type": "string", "description": "Optional notes" },
+        "isAutoGroceryExpense": { "type": "boolean", "description": "Logged via shopping checkout" }
+      }
+    }
+  }
+}
